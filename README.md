@@ -11,7 +11,7 @@
 
 A professionally enhanced, feature-rich version of the Baileys WhatsApp Web API. Built for developers requiring robust WhatsApp automation with modern tooling and comprehensive documentation.
 
-**Maintainer:** 𝐱𝐡_𝐜𝐥𝐢𝐧𝐭𝐨𝐧 [Dev]
+**Maintainer:** Fredi AI [Dev]
 
 ---
 
@@ -34,7 +34,7 @@ Choose the installation method that best fits your workflow:
 
 ### **Method 1: Via npm (Recommended for Production)**
 ```bash
-npm install @xh_clinton/baileys-mod
+npm install @Fezchat/SocketsBaileys-mod
 ```
 
 Method 2: Directly from GitHub
@@ -43,7 +43,7 @@ Install the latest development version directly from the source repository:
 
 ```bash
 # Install main branch
-npm install https://github.com/xhclintohn/Baileys.git
+npm install https://github.com/FezChat/SocketsBaileys.git
 
 ```
 
@@ -53,7 +53,7 @@ For contributing or local testing, install from a local directory:
 
 ```bash
 # Clone the repository first
-git clone https://github.com/xhclintohn/Baileys.git
+git clone https://github.com/FezChat/SocketsBaileys.git
 cd your-project
 
 # Install as local dependency
@@ -67,7 +67,7 @@ Use npm aliasing to replace the original package with this enhanced version:
 ```json
 // In your package.json
 "dependencies": {
-    "@whiskeysockets/baileys": "npm:@xh_clinton/baileys-mod@latest"
+    "@whiskeysockets/baileys": "npm:@FezChat/SocketsBaileys-mod@latest"
 }
 ```
 
@@ -79,9 +79,9 @@ Note: This will make your imports of @whiskeysockets/baileys resolve to this enh
 Method 5: Using Yarn
 
 ```bash
-yarn add @xh_clinton/baileys-mod
+yarn add @FezChat/SocketsBaileys-mod
 # or from GitHub
-yarn add https://github.com/xhclintohn/Baileys.git
+yarn add https://github.com/FezChat/SocketsBaileys.git
 ```
 
 ---
@@ -91,7 +91,7 @@ yarn add https://github.com/xhclintohn/Baileys.git
 Basic Connection Example
 
 ```javascript
-const { makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@xh_clinton/baileys-mod');
+const { makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@FezChat/SocketsBaileys-mod');
 const { Boom } = require('@hapi/boom');
 
 async function connectToWhatsApp() {
@@ -116,7 +116,7 @@ async function connectToWhatsApp() {
             console.log('✅ Successfully connected to WhatsApp!');
             // Send a welcome message to yourself
             const selfJid = sock.user.id;
-            sock.sendMessage(selfJid, { text: 'Hello! I am online using @xh_clinton/baileys-mod 🤖' });
+            sock.sendMessage(selfJid, { text: 'Hello! I am online using @FezChat/SocketsBaileys-mod 🤖' });
         }
     });
 
@@ -143,7 +143,7 @@ connectToWhatsApp().catch(console.error);
 Connect with Pairing Code (Alternative to QR)
 
 ```javascript
-const { makeWASocket } = require('@xh_clinton/baileys-mod');
+const { makeWASocket } = require('@FezChat/SocketsBaileys-mod');
 
 const sock = makeWASocket({ printQRInTerminal: false });
 
@@ -165,7 +165,7 @@ if (!sock.authState.creds.registered) {
 Browser Configuration Constants
 
 ```javascript
-const { makeWASocket, Browsers } = require('@xh_clinton/baileys-mod');
+const { makeWASocket, Browsers } = require('@FezChat/SocktsBaileys-mod');
 
 // Pre-defined browser configurations
 const sock = makeWASocket({
@@ -215,7 +215,7 @@ sock.ev.on('groups.update', async ([event]) => {
 Multi-File Auth State (Recommended for Development)
 
 ```javascript
-const { makeWASocket, useMultiFileAuthState } = require('@xh_clinton/baileys-mod');
+const { makeWASocket, useMultiFileAuthState } = require('@FezChat/SocketsBaileys-mod');
 
 async function connect() {
     const { state, saveCreds } = await useMultiFileAuthState('auth_info_directory');
@@ -227,7 +227,7 @@ async function connect() {
 Custom Database Auth State (Production)
 
 ```javascript
-const { makeWASocket, makeCacheableSignalKeyStore } = require('@xh_clinton/baileys-mod');
+const { makeWASocket, makeCacheableSignalKeyStore } = require('@FezChat/SocketsBaileys-mod');
 
 // Example with custom database storage
 const myAuthState = {
@@ -392,7 +392,7 @@ await sock.sendMessage(jid, {
 await sock.readMessages([messageKey1, messageKey2]);
 
 // Download media from message
-const { downloadMediaMessage } = require('@xh_clinton/baileys-mod');
+const { downloadMediaMessage } = require('@FezChat/SocketsBaileys-mod');
 const fs = require('fs');
 
 sock.ev.on('messages.upsert', async ({ messages }) => {
@@ -536,7 +536,7 @@ const blocklist = await sock.fetchBlocklist();
 In-Memory Store (Development)
 
 ```javascript
-const { makeInMemoryStore } = require('@xh_clinton/baileys-mod');
+const { makeInMemoryStore } = require('@FezChat/SocketsBaileys-mod');
 const store = makeInMemoryStore({ logger: console });
 
 // Read from/write to file
@@ -592,7 +592,7 @@ const {
     downloadContentFromMessage,
     getAggregateVotesInPollMessage,
     proto
-} = require('@xh_clinton/baileys-mod');
+} = require('@FezChat/SocketsBaileys-mod');
 
 // Message type detection
 const messageType = getContentType(message);
@@ -756,7 +756,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 <div align="center">
 
-🌟 Crafted with ❤️ by 𝐱𝐡_𝐜𝐥𝐢𝐧𝐭𝐨𝐧 [Dev]
+🌟 Crafted with ❤️ by Fredi Ezra [Dev]
 
 Empowering developers with powerful WhatsApp automation tools
 
